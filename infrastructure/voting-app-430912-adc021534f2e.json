@@ -1,13 +1,1 @@
-{
-  "type": "service_account",
-  "project_id": "voting-app-430912",
-  "private_key_id": "adc021534f2e49a3c7bb7c8eed3a0b83f4dcb1ea",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCx7nfvFb2dVgPc\nATvfO/gHeTSZ1Nw1EYl2yyCArmNU7VY4ZuAChlZSO5pNdham4y+FjPlGEQ655tsv\nE26vyKaSZ0u181zjm/v02zch33dgLdsrs2a7nIsk0yYYlrroNK/me8mCQwTHFk+p\ne7dXMYi5LxxDb3yMubRbQ+h+mkOeOKeq/Y1vw9GfuEOl6V/kKt5r2ATS1gVTY+Aw\nGGRhmewArdVTQBwIAgPOIOhv8mtu7TreQKYFA1nEZnzwhEdKSPO1dA59xMTnYb7K\nfDQgznkZ75gka7r8kdx3rbGAWKRooSwvI0TO/337EpIGSw5oVtW9zArgOPoEAa4h\ntXMyRVVxAgMBAAECggEABM8UZDyS75vpxkotP1MMWM1cj9TKL8/9xl1mjzvHWP4C\nIMuc/cx6LEZKnRHWOmP0/pfJC+z9mCYmYd8VVIBoihfrGquNZORsGpnLI2n5/Lo4\njHWQjv0D4LapNqxqOEjmQSUy1Mexax0OAZ9jnOJsls6wZZ0vgVEqj/XlpHhQYAgN\n7J0xxrzwMorTTEUnDmXFW5xx4pGb512aRISFDpzwsfINPoyzHDZHzvj8NbZ9GoB7\nDKkrPVT0dGIRJO+OeYc19tFyToySEW14gxzv0js3jqB9o4t1RKvD2hv05IJyDEjg\n9k9G4HN6CImytXpJNapRde6iA4h/aCIitcO+XH827QKBgQDWwlfaBI/GaZZ4nZnO\nLEyvj30mc6815ye/aaTJbzJySceSuMNVUss3RMy1wTKdTFKaW1mFwy/us8qus48J\nAUuX34l3pVM3qCIbc9tPwFoPQxdMjVPTN0n8sL0JonxFTTZ6ESOWtwvVoyw+bhzg\nG4rC+y3FN9G4kHHR0jC7KIk3rQKBgQDUGamCuL/HNmry33zw2SvLldD8ph32MmKy\nzlv2tGai0FZaODbx3PCN2IaBIlhZB9FJzwC46uYOsnGZRGiOPAcB3G7jl4fmo7pa\nclmA4RTfgoEa15OBkZsxWMNYV/C99U6xgwb88DDeXA7CbJGpxbqs3bRI4sGGFaWi\nlcRd0OxdVQKBgChf9yY8z07tEOXyMzVIrM4gutWc0CbhI17gHKPmLOTBrCyQYeDL\npPrqC1ZsUPiznZ/5ZpY4QO2ujX9UsKJvxOdzliORSFjhWjAxEt0me4f9BAdXVpgR\n/+3qyE9kZdqdjo1aZYdzOF1cxPejufgEFY1crZkzSlFZjpx02MaG820tAoGBAJVO\nM0t4LlhX8FVkCZmp5vB7WBBiB7lloqDoL0itmYqHSiJcbCE6PIQ9pgGFYdfabvOc\nKpABm01BREJ2K3vkubIPsGe6Jcqv+uDsmiDlUUI9phB1LLsK+sp0B59K2IeABZNj\n/ylTE7OT7jfjIW73Z/+EWgLszPpMhrq63u6Dwb+5AoGAcb7UykJWcpQBt9fLMl9z\nGz0i82dilhDPiToSFf5X29ZW4Jpo7+VV0bpH1kbzw9qlKH+F9g/rQFU6SvCrIvRv\n1oZf6JL66LGn/uC4+0M5A3cyliLSoTgMtfVzRuReZPHkenw015TIQq+bcfbYSpSb\nHa5uHQkeDgP7uzVR9hqs/dQ=\n-----END PRIVATE KEY-----\n",
-  "client_email": "terraform-account@voting-app-430912.iam.gserviceaccount.com",
-  "client_id": "113494690287722357178",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/terraform-account%40voting-app-430912.iam.gserviceaccount.com",
-  "universe_domain": "googleapis.com"
-}
+
