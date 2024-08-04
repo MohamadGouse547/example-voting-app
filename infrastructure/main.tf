@@ -66,7 +66,7 @@ resource "google_compute_instance" "app_server_worker" {
 #Cloud SQL instance
 resource "google_sql_database_instance" "db_instance" {
   name             = "cloud-sql-instance"
-  database_version = "MYSQL_5_7"
+  database_version = "POSTGRES_13"
   region           = var.region
 
   settings {
@@ -74,7 +74,7 @@ resource "google_sql_database_instance" "db_instance" {
 
     ip_configuration {
       authorized_networks {
-        name  = "app-server"
+        name  = "app-server-master"
         value = google_compute_instance.app_server.network_interface[0].access_config[0].nat_ip
       }
       authorized_networks {
