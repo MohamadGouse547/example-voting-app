@@ -19,9 +19,9 @@ resource "google_compute_subnetwork" "subnet" {
 }
 
 
-#Compute engine instance'
-resource "google_compute_instance" "app_server" {
-  name         = var.instance_name
+#Compute engine instance for master node'
+resource "google_compute_instance" "app_server_master" {
+  name         = var.instance_name_master
   machine_type = var.machine_type
   zone         = var.zone
 
@@ -41,6 +41,27 @@ resource "google_compute_instance" "app_server" {
 }
 }
 
+#Compute engine instance for worker node'
+resource "google_compute_instance" "app_server_worker" {
+  name         = var.instance_name_worker
+  machine_type = var.machine_type
+  zone         = var.zone
+
+  boot_disk {
+    initialize_params {
+      image = var.image
+}
+}
+
+  network_interface {
+    network    = google_compute_network.vpc_network.name
+    subnetwork = google_compute_subnetwork.subnet.name
+
+    access_config {
+      // Ephemeral public IP
+}
+}
+}
 
 #Cloud SQL instance
 resource "google_sql_database_instance" "db_instance" {
@@ -56,6 +77,10 @@ resource "google_sql_database_instance" "db_instance" {
         name  = "app-server"
         value = google_compute_instance.app_server.network_interface[0].access_config[0].nat_ip
       }
+      authorized_networks {
+        name  = "app-server-worker"
+        value = google_compute_instance.app_server_worker1.network_interface[0].access_config[0].nat_ip
+      }
       ipv4_enabled = true
 }
 }
@@ -69,7 +94,7 @@ resource "google_compute_firewall" "allow_ports" {
 
   allow {
     protocol = "tcp"
-    ports    = ["5000", "5001", "31000", "31001", "22"]
+    ports    = ["5000", "5001", "31000", "31001", "22", "3000-10000", "30000-32767"]
 }
 
   source_ranges = ["0.0.0.0/0"]
