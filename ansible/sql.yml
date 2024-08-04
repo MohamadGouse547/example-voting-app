@@ -1,0 +1,64 @@
+
+---
+- name: Run both.sh on all nodes
+  hosts: all
+  tasks:
+    - name: Ensure both.sh is executable
+      ansible.builtin.file:
+        path: /ansible/both.sh
+        mode: '0755'
+
+    - name: Run both.sh script
+      ansible.builtin.shell: /ansible/both.sh
+      become: yes
+
+- name: Run master.sh on master node
+  hosts: master
+  tasks:
+    - name: Ensure master.sh is executable
+      ansible.builtin.file:
+        path: /ansible/master.sh
+        mode: '0755'
+
+    - name: Run master.sh script
+      ansible.builtin.shell: /ansible/master.sh
+      become: yes
+
+- name: Configure master node
+  hosts: master
+  tasks:
+    - name: Install PostgreSQL client
+      ansible.builtin.package:
+        name: postgresql-client
+        state: present
+
+    - name: Connect to Cloud SQL PostgreSQL
+      ansible.builtin.shell: >
+        PGPASSWORD={{ db_password }} psql -h /cloudsql/{{ cloud_sql_instance_connection_name }}
+        -U {{ db_user }} -d {{ db_name }} -c "SELECT 1"
+      register: psql_output
+
+    - name: Ensure connection to PostgreSQL is successful
+      ansible.builtin.debug:
+        msg: "PostgreSQL connection successful: {{ psql_output.stdout }}"
+      failed_when: "'1' not in psql_output.stdout"
+
+- name: Configure worker nodes
+  hosts: workers
+  tasks:
+    - name: Install PostgreSQL client
+      ansible.builtin.package:
+        name: postgresql-client
+        state: present
+
+    - name: Connect to Cloud SQL PostgreSQL
+      ansible.builtin.shell: >
+        PGPASSWORD={{ db_password }} psql -h /cloudsql/{{ cloud_sql_instance_connection_name }}
+        -U {{ db_user }} -d {{ db_name }} -c "SELECT 1"
+      register: psql_output
+
+    - name: Ensure connection to PostgreSQL is successful
+      ansible.builtin.debug:
+        msg: "PostgreSQL connection successful: {{ psql_output.stdout }}"
+      failed_when: "'1' not in psql_output.stdout"
+
