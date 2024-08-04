@@ -10,10 +10,16 @@ variable "region" {
   default     = "us-central1"
 }
 
-variable "instance_name" {
+variable "instance_name_master" {
   description = "The name of the compute instance"
   type        = string
-  default     = "voting-app-server"
+  default     = "voting-app-server-master"
+}
+
+variable "instance_name_worker" {
+  description = "The name of the compute instance"
+  type        = string
+  default     = "voting-app-server-worker"
 }
 
 variable "machine_type" {
