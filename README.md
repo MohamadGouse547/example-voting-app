@@ -99,7 +99,7 @@ Then, you can run the script using:
 
 *Nexus
 
-Create two more cloud instances for SonarQube and nexus and install docker on SonarQube and Nexus instances as well by running install_docker.sh. And follow the steps below to setup Nexus.
+Create two more cloud instances for SonarQube and Nexus and install docker on SonarQube and Nexus instances as well by running install_docker.sh. And follow the steps below to setup Nexus.
 
 Create Nexus using docker container on Nexus' cloud instance:
 
@@ -168,7 +168,7 @@ Access SonarQube by opening a web browser and navigating to http://VmIP:9000
 
 * CI/CD Pipeline
 
-For the pipeline first Install below Plugins in Jenkins:
+For the pipeline first Install the below Plugins in Jenkins:
 1) Eclipse Temurin Installer
 2) Pipeline Maven Integration
 3) Config File Provider
@@ -178,9 +178,9 @@ For the pipeline first Install below Plugins in Jenkins:
 7) Docker 
 8) Docker Pipeline Step
 
-After installing these plugins, you may need to configure them.This typically involves setting up credentials, configuring paths, and specifying options in Jenkins global configuration or individual job configurations. 
+After installing these plugins, you may need to configure them. This typically involves setting up credentials, configuring paths, and specifying options in Jenkins global configuration or individual job configurations. 
 Each plugin usually comes with its own set of documentation to guide you through the configuration process.
-After configuring the above plugins I will now breif you about pipeline stages: There are 13/14 stages in an production pipeline which will be:
+After configuring the above plugins I will now brief you about pipeline stages: There are 13/14 stages in a production pipeline which will be:
 1) Git Checkout:
 
 This stage will pull the repo.
@@ -195,7 +195,7 @@ This is will run test cases.
 
 4) File system scan:
 
-This stage is to check if there is any vulnaribilities in the dependencies using 3rd party tool trivy. It will generate a report and export inside a seprate file.
+This stage is to check if there is any vulnerabilities in the dependencies using 3rd party tool trivy. It will generate a report and export it inside a separate file.
 
 5) SonarQube Analysis:
 
@@ -231,7 +231,13 @@ This stage will deploy our application on to our cluster.
 
 13) Verify Deployment
 
+## Monitoring and Logging
+![Dashboard].(Monitoring and Logging.png)
 
+## Security Measures 
+Assigned IAM roles with minimum privileges to cluster instance.
+Created a Service account for Jenkins and bonded that Service account with a role with least permissions that are necessary for automated deployment of our application.
+Can encrypt the database for data at rest and use tls/ssl certificates for data in transit to secure the application data.
 
 
 ## Architecture
