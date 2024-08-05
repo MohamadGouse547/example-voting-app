@@ -1,29 +1,5 @@
 
 ---
-- name: Run both.sh on all nodes
-  hosts: all
-  tasks:
-    - name: Ensure both.sh is executable
-      ansible.builtin.file:
-        path: /ansible/both.sh
-        mode: '0755'
-
-    - name: Run both.sh script
-      ansible.builtin.shell: /ansible/both.sh
-      become: yes
-
-- name: Run master.sh on master node
-  hosts: master
-  tasks:
-    - name: Ensure master.sh is executable
-      ansible.builtin.file:
-        path: /ansible/master.sh
-        mode: '0755'
-
-    - name: Run master.sh script
-      ansible.builtin.shell: /ansible/master.sh
-      become: yes
-
 - name: Configure master node
   hosts: master
   tasks:
