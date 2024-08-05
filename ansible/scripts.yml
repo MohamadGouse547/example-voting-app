@@ -1,0 +1,35 @@
+---
+- name: Update repository and run master.sh on master node
+  hosts: master
+  tasks:
+    - name: Ensure Git is installed
+      ansible.builtin.package:
+        name: git
+        state: present
+
+    - name: Pull the latest code from the Git repository
+      ansible.builtin.git:
+        repo: 'https://github.com/MohamadGouse547/example-voting-app.git'
+        dest: example-voting-app
+        update: yes
+
+    - name: Ensure master.sh is executable
+      ansible.builtin.file:
+        path: example-voting-app/ansible/master.sh
+        mode: '0755'
+
+    - name: Run master.sh script
+      ansible.builtin.shell: example-voting-app/ansible/master.sh
+      become: yes
+
+- name: Run worker.sh on all worker nodes
+  hosts: worker
+  tasks:
+    - name: Ensure worker.sh is executable
+      ansible.builtin.file:
+        path: example-voting-app/ansible/worker.sh
+        mode: '0755'
+
+    - name: Run worker.sh script
+      ansible.builtin.shell: example-voting-app/ansible/worker.sh
+      become: yes
