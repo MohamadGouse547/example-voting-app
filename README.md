@@ -232,7 +232,7 @@ This stage will deploy our application on to our cluster.
 13) Verify Deployment
 
 ## Monitoring and Logging
-![Dashboard].(Monitoring and Logging.png)
+![Monitoring and Logging].(Monitoring and Logging.png)
 
 ## Security Measures 
 Assigned IAM roles with minimum privileges to cluster instance.
